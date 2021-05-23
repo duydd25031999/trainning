@@ -69,14 +69,3 @@ var b = {
 }
 
 // b.showInfor();
-
-var c = {
-    func: function() {
-        function func2() {
-            console.log(this); // 'this' thay thế  cho 'Window'
-        }
-        func2();
-    }
-}
-
-// c.func();
