@@ -36,7 +36,7 @@ Merge để ghép 2 luồng khác nhau history
 Nếu cùng 1 branch, nhưng nếu có thằng push lên web github làm thay đổi history
 - Phải merge code trên web với local để đồng bộ history rồi chính mình mới push lên được
 
-Merge 2 branch
+Merge branch khác vào branch hiện tại để lấy code + history của branch đó
 
 ## pull request
 Tương đương với merge 2 branch
@@ -51,7 +51,7 @@ Khai báo để git bỏ qua khi check change
 Loosely typing 
 - không khai báo cụ thể kiểu biến
 
-Dynamically typed: 
+Dynamically typed 
 - Một ngôn ngữ thuộc kiểu dynamically typed là ngôn ngữ có type được nhận biết trong quá trình runtime.
 ```
 var a = 1 // int
@@ -59,7 +59,7 @@ var b = 'test' // string
 ```
 
 Weakly typed
-Một ngôn ngữ thuộc kiểu weakly typed là ngôn ngữ mà type a có thể được suy ra từ một type khác.
+- Một ngôn ngữ thuộc kiểu weakly typed là ngôn ngữ mà type a có thể được suy ra từ một type khác.
 ```
 - 1 + '2' // '12'
 ```
