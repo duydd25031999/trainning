@@ -210,12 +210,16 @@ Tạo ra 1 mảng mới = cách lọc các phần tử trong mảng cũ
 Thay thế hoặc chèn elements vào mảng
 
 ### slice
+Tạo ra subarray cho mảng cũ
 
 ### sort
 Sort array = cách chuyền 1 function để so sảnh 2 element trong mảng
 
 ### reverse
+Tạo ra 1 mảng mới có thứ tự đảo ngược so với mảng cũ
+
 ### reduce
+Tạo ra 1 value mới (number, object, array, ...) từ việc biến đổi từng item trong mảng
 
 ## Destructuring
 unpack values from arrays, or properties from objects
