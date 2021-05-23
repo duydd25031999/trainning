@@ -108,7 +108,7 @@ truthy -> if đúng
 ### Basic
 function là reference datatype trong js
 ```
-function a({}
+function a() {}
 var b = a;
 console.log(typeof b); //function
 ```
@@ -116,11 +116,11 @@ console.log(typeof b); //function
 khai báo function
 - declaction function
 ```
-function foo({...}
+function foo() {...}
 ```
 - expression function
 ```
-var foo = function({...}
+var foo = function() {...}
 ```
 
 **this** trong function = context mà nó đc gọi
