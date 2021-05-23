@@ -18,8 +18,8 @@ function absoluteValueSort(arr) {
 
     const firstPositiveIndex = i;
 
-    const positiveArray = sortArr.slice(i);
-    const negativeArray = sortArr.slice(0, i);
+    const positiveArray = sortArr.slice(firstPositiveIndex);
+    const negativeArray = sortArr.slice(0, firstPositiveIndex).reserve();
     let result = [];
 
     console.log('positiveArray', positiveArray)
@@ -27,10 +27,6 @@ function absoluteValueSort(arr) {
 
     let negativeIndex = 0,
         positiveIndex = 0;
-
-    function insertToResult(value) {
-        result.forEach((item, i) => {})
-    }
 
     while (negativeIndex < negativeArray.length || positiveIndex < positiveArray.length) {
 
@@ -55,8 +51,6 @@ function absoluteValueSort(arr) {
 
     return result;
 }
-
-// absoluteValueSort(a)
 
 console.log(absoluteValueSort(a)) // [0, 1, -3, -7, 7, 12, -22, 25]
 
