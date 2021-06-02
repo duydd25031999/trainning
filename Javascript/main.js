@@ -1,3 +1,13 @@
+// Start lession 3
+// renderTable(array) : function để vẽ row của data table dựa trên array truyền vào
+console.log('renderTable', renderTable);
+// axios là 1 công cụ gọi api để lấy data
+console.log('axios', axios);
+
+// api link: https://jsonplaceholder.typicode.com/todos
+// YÊU CẦU : dùng axios gọi api trên để lấy data rồi truyền data vào renderTable để hiện thị data trên data table
+// End lession 3
+
 // Start lession 2
 
 let students = [
@@ -43,7 +53,7 @@ function sortStudents(students) {
     );
 }
 
-console.log('sortStudents', sortStudents(students));
+// console.log('sortStudents', sortStudents(students));
 /**
  *  Output: sortStudents
  *  [
@@ -88,7 +98,7 @@ console.log('sortStudents', sortStudents(students));
  *      drawTime: function vẽ kim đồng hồ
  *  }
  */
-console.log('clock', clock);
+// console.log('clock', clock);
 /** Code tiếp dưới đây để mỗi 1 giây gọi hàm hiển thị lại đồng hồ */
 
 // End lession 2
