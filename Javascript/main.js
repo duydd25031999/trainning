@@ -39,7 +39,7 @@ let students = [
         id: 5,
         name: 'Phạm Quốc Việt',
         gender: 'Nam',
-        height: 165,
+        height: 165, 
     },
 ]
 
