@@ -8,10 +8,9 @@ console.log('axios', axios);
 // YÊU CẦU : dùng axios gọi api trên để lấy data rồi truyền data vào renderTable để hiện thị data trên data table
 // End lession 3
 
-// Start lession 2
 
-let students = [
-    {
+// Start lession 2
+let students = [{
         id: 1,
         name: 'Nguyễn Thị Cẩm Hạnh',
         gender: 'Nữ',
@@ -39,7 +38,7 @@ let students = [
         id: 5,
         name: 'Phạm Quốc Việt',
         gender: 'Nam',
-        height: 165, 
+        height: 165,
     },
 ]
 
@@ -50,6 +49,19 @@ function sortStudents(students) {
          * 1. Nữ trước Nam sau
          * 2. Tăng dần về chiều cao
          */
+        function(prevStudent, nextStudent) {
+            // khác giới tính
+            if (prevStudent.gender !== nextStudent.gender) {
+                if (prevStudent.gender == 'Nữ') {
+                    return -2;
+                } else {
+                    return 3;
+                }
+            }
+
+            // cùng giới tính
+            return prevStudent.height - nextStudent.height;
+        }
     );
 }
 
@@ -100,6 +112,18 @@ function sortStudents(students) {
  */
 // console.log('clock', clock);
 /** Code tiếp dưới đây để mỗi 1 giây gọi hàm hiển thị lại đồng hồ */
+function time() {
+    clock.drawFace();
+    clock.drawNumbers();
+    clock.drawTime();
+
+}
+
+// var time = function () {...}
+
+setInterval(time, 1000);
+
+
 
 // End lession 2
 
