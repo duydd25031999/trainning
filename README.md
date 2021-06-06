@@ -226,12 +226,23 @@ unpack values from arrays, or properties from objects
 ```
 var a, b, rest;
 [a, b, ...rest] = [10, 20, 30, 40, 50];
+
+var a = array[1]
+var b = array[0]
+var rest = array.slice(2);
+
+var [b, a, ...rest] = array
+
 /*
     a = 10
     b = 20
     rest = [30, 40, 50]
 */
-var person = {name: "Duy", age: 21}; 
+var person = {name: "Duy", age: 21, gender: 'Nam'}; 
+
+var name = person.name
+var age = person.age
+
 var {name, age} = person;
 /*
     name = "Duy"
@@ -244,19 +255,34 @@ gộp các element thành 1 array
 ```
 var a, b, rest;
 [a, b, ...rest] = [10, 20, 30, 40, 50];
+
+var c = [a, ...rest]
+var c = [10, 30, 40, 50]
 /*
     rest = [30, 40, 50]
 */
-function demo(a, b, ...rest{...}
-demo(10, 20, 30, 40, 50);
+
+sum(...arrayNumber) {}
+
+sum() => arrayNumber = []
+sum(1) => arrayNumber = [1]
+sum(1, 2) => arrayNumber = [1, 2]
+
+function demo(a, b, ...rest) {...}
+
+demo(10, 20); => rest = []
+demo(10) => b = null
+demo() => a, b = null
+demo(10, 20, 30, 40, 50, 60)
 /*
-    rest = [30, 40, 50]
+    rest = [30, 40, 50, 60]
 */
 ```
 trải elements của 1 array vào 1 array khác
 ```
 var x = [1, 2, 3]
 var y = [4, 5, ...x] // [4, 5, 1, 2, 3]
+var y = [...x, 4, 5] = x.concat([4, 5])
 ```
 trải properties của obj cho 1 obj khác
 ```
@@ -281,8 +307,9 @@ var x = `string 1
 ```
 truyền biến vào string
 ```
-var x = 'world'
-var hello = `hello ${x}` //hello world
+var x = 'Duy'
+var hello = `hello ${x} nhé` //hello Duy nhé
+var hello = 'hello ' + x + ' nhé'
 ```
 
 ## Closure
@@ -300,32 +327,86 @@ function
         - garbage colleciton = auto xóa bởi máy ảo (giống java)
 - inner
 - child function
+```javascript
+function demo () 
+{scope của function
+    var a = 1
+}
+
+demo() => create a => a = 1 => return => destroy a
+demo() => create a => a = 1 => return => destroy a
+
+{scope
+    var a = 1
+
+    {scope con
+        console.log(a) => 1
+    }
+}
+
+console.log(a) => undefind
+
+function a() 
+{// scope của a
+    var b = 2;
+
+    if (b == 2) 
+    {// scope của if
+        var c = 3
+
+        return b + c; // => 5
+        //destroy b + c
+    }
+    // destroy c
+
+    // i ko thuộc scope của loop
+    for (let i = 0; i < 10; i++) 
+    { //scope của loop
+        var d = 1
+    } //destroy 1
+
+    return b + c;
+    // destroy
+}
+
+a() => undefind | error
+```
 
 ### closure
-là 1 (nestedchild function refer tới var của parent function
+
+là 1 (nested child) function refer tới var của parent function
 - Khi scope của parent func xóa 
 - => var đc closure refer của parent func sẽ ko bị garbage collected
 
 ### Builder Pattern
-```
-function buildAdder(x{
-    var accumlator = x;
+```javascript
+// global scope => public
+// var sum = 1;
 
-    return function(y{
-        return accumlator += y;
+function buildAdder(initValue)
+{ // scope của buildAdder
+    var sum = initValue;
+
+    var adder =  function(y) 
+    { // scope của adder
+        sum += y
+        return sum;
     }
+
+    return adder;
+    //destroy adder 
 }
 
-var adder = buildAdder(1);
-adder(2);   //  3
+var adder = buildAdder(1); // => destroy sum
+adder(2);   //  3, sum = undefind
 adder(3);   //  6
 adder(4);   //  10
 ```
 
 ### Stimulate Class
-```
-var newPerson = function(name{
-    var _name = name;
+```javascript
+var newPerson = function(name) {
+    var _name = name; //private
     return {
         setName: function(name{
             _name = name;
@@ -340,7 +421,12 @@ var newPerson = function(name{
 }
 
 var person1 = newPerson('Person 1');
-person1.sayHi();
+
+console.log(person1); => 3 function, ko hiện ra _name
+
+person1.setName('Duy')
+
+person1.sayHi(); //Hi, I'm Duy
 
 var person2 = newPerson('Person 2');
 person2.sayHi();
@@ -402,7 +488,13 @@ mainFunction.catch(function(error{
 
 mainFunction.catch(function(error{ ... }
 //tương đương với
-mainFunction.then(undifine, function(error{ ... })
+mainFunction.then(undedfined, function(error{ ... })
+
+// code của Duy
+loadData
+.then(function () => {update data table}) //fail = undefined
+.catch(function() => {fail show error message}) //fail = func
+.finally(function() {turn off loading})
 ```
 
 ### Promise.finally
