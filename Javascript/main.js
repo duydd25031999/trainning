@@ -1,7 +1,16 @@
-// Start lession 2
+// Start lession 3
+// renderTable(array) : function để vẽ row của data table dựa trên array truyền vào
+console.log('renderTable', renderTable);
+// axios là 1 công cụ gọi api để lấy data
+console.log('axios', axios);
 
-let students = [
-    {
+// api link: https://jsonplaceholder.typicode.com/todos
+// YÊU CẦU : dùng axios gọi api trên để lấy data rồi truyền data vào renderTable để hiện thị data trên data table
+// End lession 3
+
+
+// Start lession 2
+let students = [{
         id: 1,
         name: 'Nguyễn Thị Cẩm Hạnh',
         gender: 'Nữ',
@@ -40,10 +49,23 @@ function sortStudents(students) {
          * 1. Nữ trước Nam sau
          * 2. Tăng dần về chiều cao
          */
+        function(prevStudent, nextStudent) {
+            // khác giới tính
+            if (prevStudent.gender !== nextStudent.gender) {
+                if (prevStudent.gender == 'Nữ') {
+                    return -2;
+                } else {
+                    return 3;
+                }
+            }
+
+            // cùng giới tính
+            return prevStudent.height - nextStudent.height;
+        }
     );
 }
 
-console.log('sortStudents', sortStudents(students));
+// console.log('sortStudents', sortStudents(students));
 /**
  *  Output: sortStudents
  *  [
@@ -88,8 +110,20 @@ console.log('sortStudents', sortStudents(students));
  *      drawTime: function vẽ kim đồng hồ
  *  }
  */
-console.log('clock', clock);
+// console.log('clock', clock);
 /** Code tiếp dưới đây để mỗi 1 giây gọi hàm hiển thị lại đồng hồ */
+function time() {
+    clock.drawFace();
+    clock.drawNumbers();
+    clock.drawTime();
+
+}
+
+// var time = function () {...}
+
+setInterval(time, 1000);
+
+
 
 
 // End lession 2
