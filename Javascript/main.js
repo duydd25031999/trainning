@@ -10,8 +10,7 @@ console.log('axios', axios);
 
 // Start lession 2
 
-let students = [
-    {
+let students = [{
         id: 1,
         name: 'Nguyễn Thị Cẩm Hạnh',
         gender: 'Nữ',
@@ -44,13 +43,19 @@ let students = [
 ]
 
 function sortStudents(students) {
-    return students.sort(
-        /**
-         * Dùng function array.sort để sắp xếp students theo:
-         * 1. Nữ trước Nam sau
-         * 2. Tăng dần về chiều cao
-         */
-    );
+    return students.sort(function(preStu, nextStu) {
+        //khac gioi tinh
+        if (preStu.gender !== nextStu.gender) {
+            if (preStu.gender == 'Nữ') {
+                return -1;
+            } else return 1;
+        }
+        //cung gioi tinh
+        else {
+            return preStu.height - nextStu.height;
+        }
+    })
+
 }
 
 // console.log('sortStudents', sortStudents(students));
