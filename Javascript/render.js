@@ -1,6 +1,6 @@
 let renderTable = null;
 
-$(document).ready( function () {
+$(document).ready(function() {
     dataTable = $('#table_id').DataTable();
 
     renderTable = function(array) {
@@ -10,7 +10,7 @@ $(document).ready( function () {
             dataTable.row.add([
                 item.id,
                 item.title,
-            ] ).draw( false );
+            ]).draw(false);
         })
     }
-} );
+});
