@@ -1,19 +1,23 @@
 // Start lession 3
 // renderTable(array) : function để vẽ row của data table dựa trên array truyền vào
+const table = document.querySelector("#table_data")
 
 axios({
     method: "GET",
     url: "https://jsonplaceholder.typicode.com/todos?",
     data: [],
 }).then((res) => {
-    console.log(res);
+    console.log(res.data);
     renderTable = res.data;
     console.log("renderTable", renderTable);
 
+    //js thuần
+    renderTable.forEach(item => {
+        table.innerHTML += `<td>${item.id}</td><td>${item.title}</td>`
+    })
 }).catch((err) => {
     console.log(err);
 });
-
 
 
 // console.log('renderTable', renderTable);
